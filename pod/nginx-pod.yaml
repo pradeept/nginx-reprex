@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: deploy-nginx-declarative
+  labels:
+    app: nginx-app
+    tier: back-end
+spec:
+  containers:
+  - name: nginx-container
+    image: nginx:latest
+    resources:
+      requests: 
+        cpu: 200m
+        memory: 64Mi
+      limits:
+        cpu: 300m
+        memory: 100Mi
+    ports:
+    - containerPort: 80
